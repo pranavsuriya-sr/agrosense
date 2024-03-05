@@ -1,6 +1,5 @@
-import { initializeApp} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getDatabase, push, get, update, set} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-import { ref } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDm0cssgEIVfy77wLs3nCffl7YkOm_jqoc",
@@ -11,7 +10,7 @@ const firebaseConfig = {
     messagingSenderId: "69956560633",
     appId: "1:69956560633:web:35dd82b1ec2b217faaa428",
     measurementId: "G-FT564ZQQ57"
-  };
+};
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
@@ -24,8 +23,8 @@ const phElem = document.getElementById("fph");
 
 const dataRef = ref(database, 'DHT');
 
-// Get data once from Firebase Realtime Database
-get(dataRef).then((snapshot) => {
+// Listen for changes to data in Firebase Realtime Database
+onValue(dataRef, (snapshot) => {
     const data = snapshot.val();
     
     // Display the data in the corresponding elements
@@ -34,6 +33,6 @@ get(dataRef).then((snapshot) => {
     pressureElem.textContent = `${data.pressure}`;
     moistureElem.textContent = `${data.moisture}`;
     phElem.textContent = `${data.ph}`;
-}).catch((error) => {
-    console.error(error);
+}, {
+    onlyOnce: false // This option ensures the callback runs every time the data changes
 });
