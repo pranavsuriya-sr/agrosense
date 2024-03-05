@@ -31,6 +31,9 @@ get(dataRef).then((snapshot) => {
     // Display the data in the corresponding elements
     temperatureElem.textContent = `${data.temperature}`;
     humidityElem.textContent = `${data.humidity}`;
+    pressureElem.textContent = `${data.pressure}`;
+    moistureElem.textContent = `${data.moisture}`;
+    phElem.textContent = `${data.ph}`;
 }).catch((error) => {
     console.error(error);
 });
