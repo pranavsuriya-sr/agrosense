@@ -2,15 +2,15 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebas
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDm0cssgEIVfy77wLs3nCffl7YkOm_jqoc",
-    authDomain: "opnelab.firebaseapp.com",
-    databaseURL: "https://opnelab-default-rtdb.firebaseio.com",
-    projectId: "opnelab",
-    storageBucket: "opnelab.appspot.com",
-    messagingSenderId: "69956560633",
-    appId: "1:69956560633:web:35dd82b1ec2b217faaa428",
-    measurementId: "G-FT564ZQQ57"
-};
+    apiKey: "AIzaSyBYqrAG5Yd332woLcWFOsk3jOAS-NuCTt4",
+    authDomain: "openlab-44938.firebaseapp.com",
+    databaseURL: "https://openlab-44938-default-rtdb.firebaseio.com",
+    projectId: "openlab-44938",
+    storageBucket: "openlab-44938.appspot.com",
+    messagingSenderId: "103202189203",
+    appId: "1:103202189203:web:94d7c05dcc2a54a7280266",
+    measurementId: "G-YFLQSJCGP5"
+  };
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
